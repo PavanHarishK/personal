@@ -1,0 +1,32 @@
+
+
+<script>
+        array = ["banana", "apple", "orange", "mango"];
+
+        for (i=0 ; i<= array.length ; i++){
+            if (array[i]==='mango'){
+                //console.log(i)
+            }
+        }
+        let index = 0;
+        array.forEach((element) => {
+            index++;
+            if(element ==="mango"){
+                //console.log(index -1);
+            }
+        });
+        index = 0;
+        array1 = ["banana0", "apple", "orange2", "apple", "mango","apple"]
+        for (i=0 ; i<= array1.length ; i++){
+            if (array1[i]==='apple' ){
+                if(i > 1){
+                    index = i;
+                }
+            }
+        }
+        array1.splice(index, 1);
+        console.log(array1);
+        
+
+        //console.log(array.findIndex(i => i === 'mango'));
+</script>

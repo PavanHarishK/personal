@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <!-- //showcopy
+        //deepcopy -->
+    </div>
+    <script>
+        let person = { 
+        firstName: "John", 
+        lastName: "Doe", 
+        age: 50 
+    };
+
+        let dataName=[{name:'a'},{name:'b'},{name:'c'}]
+        let dataAge={b:{age:10},c:{age:15},a:{age:5}}
+
+        //need o/p ==>[ { 'name':'a','age':5},{ 'name':'b','age':10},{ 'name':'c','age':15}] 
+    //    console.log(dataAge.a.age)
+    // keys= Object.keys(dataName)
+    // objs=Object.values(dataName)
+    // allVal=Object.entries(dataName)
+    // console.log(keys)
+    // console.log(objs)
+    // console.log(allVal)
+
+    //     let txt=''
+    // for(let x in person){
+    //     txt += person[x]
+    // }
+    // console.log(txt)
+
+    let arr=[1,1,1,2,2,3,3,4,4,4,4,5,5,5]
+    const uniqueArr=[]
+    for (let i=0; i<=length.arr;i++){
+        if (!uniqueArr.includes(arr[i])){
+            uniqueArr.push(arr[i])
+            }
+            
+    }
+       //console.log(uniqueArr) 
+    let alpha=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+    alphaA={}
+    count=1
+        for (let i=0; i<=alpha.length; i++){
+            //debugger
+            alpha[i]=alpha[i];
+            alphaA[alpha[i]]= count
+            count++
+        }
+        console.log(alphaA);
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+  <body></body>
+  <script>
+    array = ["banana", "apple", "orange", "mango"];
+    array[4] = "water melon";
+    console.log(array[0]);
+    delete array[0];
+    console.log(array);
+    array.shift();
+    console.log(array);
+
+    for (i = 0; i < array.length; i++) {
+      console.log(array[i]);
+    }
+
+    for (item of array) {
+      console.log(item);
+    }
+
+    array.forEach((element) => {
+      console.log(element);
+    });
+
+    array.push("pineapple"); // it will create a element at last index
+    array.unshift("orange"); // it will create a element at first index
+    array.pop(); // it will deletes the element last element
+    array.shift(); // it will deletes the element first element
+
+    console.log(array);
+    console.log(
+      "manogo index",
+      array.findIndex((item) => item === "mango")
+    );
+
+    array.filter((item, index) => {
+      if (item === "mango") {
+        console.log(index);
+      }
+    });
+
+    const numbers = [12, 8, 5, 33, 54, 25];
+    age = numbers.filter((item) => item > 15);
+    console.log(age);
+    //filter will create a new array with filtered elements, it wont change the original array.
+
+    const array1 = [
+      "apple",
+      "orange",
+      "apple",
+      "orange",
+      "apple",
+      "banana",
+      "kiwi",
+      "apple",
+      "lemon",
+      "apple",
+    ];
+    let index = -1;
+    let apple = 0;
+    //delete apple 4
+    for (let i = 0; i < array1.length; i++) {
+      if (array1[i] === "apple") {
+        apple++;
+        if (apple == 4) {
+          index = i;
+          break;
+        }
+      }
+    }
+    //delete last apple element
+    for (let i = 0; i < array1.length; i++) {
+      if (array1[i] === "apple") {
+        index = i;
+      }
+    }
+    array1.splice(index, 1);
+    console.log(array1);
+    console.log(array1.indexOf("lemon"));
+    //remove duplicate elements in a array
+    unique = array1.filter((item, index) => array1.indexOf(item) === index);
+    const aa = [1, 2, 1];
+    let un = [];
+    for (let i = 0; i < aa.length; i++) {
+      if (!un.includes(aa[i])) {
+        un.push(aa[i]);
+      }
+    }
+    console.log(un);
+
+    //for each
+    abc = [1, 2, 3, 4];
+    cc = abc.forEach((item, index) => {
+      return abc[index] = item * item;
+    });
+    console.log("abc", cc);
+    // map
+    def = [1, 2, 3, 4];
+    dmap = def.map((item, index) => {
+      return def[index] = item * item;
+    }).reverse();
+    console.log("def", def);
+    console.log("dmap", dmap);
+
+
+    age_s = [{age : 1}, {age : 2}, {age : 3}];
+    age_s.forEach((item) => {
+      item = item.isEditMode = true;
+    });
+    console.log("ages", age_s);
+
+    const a_array = ['a', 'b', 'c'];
+    const b_array = ['d', 'e', 'f'];
+    const c_array = a_array.concat(b_array);
+    //spread operator
+    const spread_operator = [...a_array, ...b_array];
+    console.log(c_array);
+    console.log('spread_operator', spread_operator);
+    //rest operator 
+    function sum(...vijaya){
+      sumC = 0;
+      for( let i of vijaya){
+      sumC += i;
+      }
+      return sumC;
+    }
+
+    console.log(sum(1,2,3,4));
+
+  </script>
+</html>

@@ -1,0 +1,8 @@
+.header-blog {
+  display: flex;
+  text-align: center;
+}
+.blog-text {
+  padding: 12px;
+  margin: auto;
+}

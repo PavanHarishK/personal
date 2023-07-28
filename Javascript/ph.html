@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Harish Practice</title>
+</head>
+<body>
+  <script>
+    ///adding age in every element
+    var array = [{ name: "a" }, { name: "b" }];
+    for (let i = 0; i < array.length; i++) {
+      array[i].age = i + 1;
+    }
+    console.log('adding add in every element::',array);
+    // by using for each method by taking every index
+  
+    array.forEach((item, index) => (item.age = index + 1));
+    console.log('with forEach loop::',array);
+    ////////////////////////////////////////////////////////
+    //&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+    //upper case first character of the word
+    // slice method
+    strr = "harish";
+    strr1 = strr.charAt(0).toUpperCase();
+    strr = strr1 + strr.slice(1);
+    console.log('first letter in uppercase::',strr);
+    //&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+  
+    // str ='hello world'
+    // newStr=''
+    // for (let i=0; i<=str.lenght; i++){
+    //     console.log(i)
+    //     if (i/2 == 0){
+    //         console.log(i)
+  
+    //         newStr=str[i]
+    //         console.log(newStr)
+    //     }
+    // }
+  
+    // &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+    // upper case and lower case in camel case letter format
+    newStr = "";
+    a = "hello world";
+    for (i = 0; i < a.length; i++) {
+      if (i % 2 == 0) {
+        newStr = newStr + a[i].toUpperCase();
+      } else {
+        newStr = newStr + a[i].toLowerCase();
+      }
+      //console.log(newStr)
+    }
+    console.log('just a string::', a);
+    console.log('upper and lower::', newStr);
+    //&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+    //reverse string using methods
+    let reverseString = a.split("").reverse().join("");
+    console.log(reverseString);
+  
+    // &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+    // reverse string using loop
+    reverseStringForLoop = "";
+    lengthOfa = a.length;
+    for (i = lengthOfa - 1; i >= 0; i--) {
+      reverseStringForLoop = reverseStringForLoop + a[i];
+    }
+    console.log('rever string::',reverseStringForLoop);
+    // &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+  
+    //&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+    //accessing first true values name and then false value name
+    // array length is 5
+    var employees = [
+      { name: "john", access: false },
+      { name: "kurt", access: false },
+      { name: "keith", access: true },
+      { name: "jakub", access: false },
+      { name: "Elon", access: true },
+    ];
+    //expected output -keith, Elon, john, kurt, jakub
+    //output : [' keith Elon john kurt jakub']
+  
+    nameEmployess = [];
+    AccessTrue = [];
+    AccessFalse = [];
+    for (i = 0; i < employees.length; i++) {
+      val = employees[i];
+      if (val.access === true) {
+        AccessTrue = AccessTrue + " " + val.name;
+      } else {
+        AccessFalse = AccessFalse + " " + val.name;
+      }
+    }
+    nameEmployess = [AccessTrue + AccessFalse];
+    console.log('true first false next::',nameEmployess);
+    //&&&&&&&&&&&&***********&&&&&&&&&&&&
+  
+    nameEmployess = [];
+    AccessTrue = [];
+    AccessFalse = [];
+    for (i = 0; i < employees.length; i++) {
+      val = employees[i];
+      if (val.access === true) {
+        AccessTrue.push(val.name);
+      } else {
+        AccessFalse.push(val.name);
+      }
+    }
+    nameEmployess = [...AccessTrue, ...AccessFalse];
+    console.log('true first false next with pushing to a new array::',nameEmployess)
+  
+    //&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+    //&&&&&&&&&&&&&&&&&&&&&&
+    // In Array removing duplicate numers and printing new array
+    let arrD = [8, 9, 2, 3, 4, 6, 4, 1, 2, 9 ,1 , 5];
+    
+    //&&&&&&&&&&&&&&&&&&&&
+    //using set method
+    let newArrD = [...new Set(arrD)];
+    console.log(newArrD)
+    //&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+    console.log(arrD)
+    let resultArr = [];
+    //with for loop
+  
+    for (let i = 0; i < arrD.length; i++) {
+      //console.log(arrD[i])
+      for (let k = 0; k < arrD.length; k++) {
+        if (arrD[i] === arrD[k]) {     /// i lo value ni k lo value tho campair chey
+          resultArr.push(arrD[i]);
+          break;
+        }
+      }
+    }
+    console.log("result p", resultArr); //result (6) [1, 1, 1, 2, 4, 5]
+    //&&&&&&&&&&&&&&&&&&&&&&&
+  
+    ar1 = [1, 2, 3, 4, 5];
+    //console.log(sum(ar1));
+    
+    // function sum(array) {
+    //   sumOf= 0;
+    //   for (i = 0; i < array.length-1; i++) {
+    //     console.log(ar[i])
+    //     //sumOf = sumOf + ar1[i];
+    //   }
+    //   return sum();
+    // }
+    
+  </script>
+  
+</body>
+</html>
+
+

@@ -1,0 +1,8 @@
+    //keyVal=Object.keys(dataName)
+      //  console.log(keyVal)
+    //    objLength=Object.keys(dataName)
+    //    console.log()
+    //     for(i=0; i<=dataName.length-1;i++){
+    //         console.log(dataName[i])
+    //     }
+    

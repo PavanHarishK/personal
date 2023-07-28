@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <body></body>
+  <script>
+    //conact()
+    let str1 = "hello";
+    let str2 = "world";
+    let str3 = str1.concat(str2);
+    console.log(str1);
+
+    //includes()
+    let string = "hello world";
+    let result = string.includes("world");
+    console.log(result); // true
+
+    //split() // A string can be converted to an array
+    let string_split = "hello and world";
+    let result_split = string_split.split(" ");
+    console.log(result_split);
+
+    //trim() // it removes the white space both the end of the strings
+    let str_trim = " hello and world ";
+    let result_trim = str_trim.trim();
+    console.log(result_trim);
+
+    //trimStart() // it removes the white space fom starting string
+    //trimEnd() // it removes the white space from ending string
+    //toUpperCase()
+    //toLowerCase()
+
+    //There are 3 methods for extracting a part of a string:
+
+    // slice(start, end)  - extracts a part of a string and returns the extracted part in a new string.
+    // substring(start, end)
+    // substr(start, length)
+
+    const text = "Apple, Banana, Lemon, Apple";
+    extract = text.split(" ");
+    console.log("banana extract", extract[1]);
+    sliceExtract = text.slice(-14, -6);
+    console.log("slice extract", sliceExtract);
+    subStringExtract = text.slice(6, 13);
+    console.log("substring extract", subStringExtract);
+    console.log("reverse", text.split(" ").reverse());
+
+    var arr = [{name: 'a'}, {name : 'b'}];
+    // arr.forEach((item, index) => item.age = index +1);
+    for(let i=0; i<arr.length; i++){
+      arr[i].age = i +1;
+    }
+    console.log(arr);
+    replace = text.replaceAll('Apple', 'orange');
+    //replace -  text.replace('Apple', 'orange');
+    //replaceAll - text.replaceAll('Apple', 'orange');
+    console.log(replace);
+    strr = "hello";
+    console.log(strr.charAt(0));
+    console.log(strr.charCodeAt(0));
+    console.log(strr.charAt(0).toUpperCase() + strr.slice(1));
+
+
+    1.// var employees = [{name : 'john', access : false}, {name : 'kurt', access : false}, {name : 'keith', access : true}, {name : 'jakub', access : false}, {name : 'Elon', access : true}];
+    //output -keith, Elon, john, kurt, jakub
+
+    2. // var str = 'hello world';
+        // even index should be uppercase
+        // odd index should be lowercase
+
+    3. // var str = 'hello world';
+       // reverse the string
+  </script>
+</html>
