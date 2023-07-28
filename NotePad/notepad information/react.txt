@@ -1,0 +1,329 @@
+React Hooks::
+
+	1)useState()
+	2)useEffect()
+	3)useContext()
+	4)useReducer()
+	5)useCallback()
+	6)useMemo()
+	7)useRef()
+	
+	useLayoutEffect()
+	useImperativeHandle()
+	useDebugValue()
+	
+	
+
+
+Map Function:Example
+---------------------------------------
+
+import React from "react";
+function App() {
+// Declared an array of items
+const fruits = [
+  'Apple',
+  'Mango',
+  'Banana',
+  'GFG'
+];
+return <>
+  {
+  /* This maps each array item to a div adds
+  the style declared above and return it */
+  fruits.map(item => <div key={item}
+      >{item}</div>)
+  }
+</>;
+}
+export default App;
+
+
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
+
+useState is a hook in React that allows you to add state to your functional components. State is any data that changes over time and can affect your component's rendering. With useState, you can declare a state variable and update it using a setter function.
+Here's how you can use useState in your application:
+1. Declare the useState hook: You can declare the useState hook at the top of your component.
+2. Define the initial state value: You can define the initial value of the state variable inside the useState hook. This value can be any data type, such as a string, number, array, or object.
+3. Update the state: You can update the state variable using the setter function returned by the useState hook. This function accepts a new value as its argument and updates the state variable with that value.
+
+Calculator app using useState
+
+
+Increment and Decrement using useState
+-------------------------------------------------------
+
+import React, { useState } from 'react';
+function Counter() {
+  const [count, setCount] = useState(0);
+  const handleIncrement = () => {
+    setCount(count + 1);
+  };
+  const handleDecrement = () => {
+    if (count > 0) {
+      setCount(count - 1);
+    }
+  };
+  return (
+    <div>
+      <h1>Count: {count}</h1>
+      <button onClick={handleIncrement}>Increment</button>
+      <button onClick={handleDecrement}>Decrement</button>
+    </div>
+  );
+}
+export default Counter;
+------------------------------
+Calculator app using useState
+---------------------------------
+
+
+import React, { useState } from "react";
+import "./index.css";
+function Calculator() {
+  const [input, setInput] = useState("");
+  const [result, setResult] = useState(0);
+  const handler = (e) => {
+    setInput(e.target.value);
+  };
+  return (
+    <div>
+      <p>Calculator</p>
+      <input type="text" value={input} name="input" onChange={handler} /> <br />
+      <button onClick={() => setResult(eval(input))}>Result</button>
+      <h4>Result {result}</h4>
+    </div>
+  );
+}
+export default Calculator;
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
+UseEffect
+
+Wednesday, April 19, 2023
+1:09 PM
+
+useEffect is a hook in React that allows you to perform side effects in your components. Side effects can include things like fetching data from a server, updating the DOM, or subscribing to events.
+The useEffect hook takes a function as its argument and runs it after every render of the component. You can use useEffect to perform any side effects you need in your component. Here's how you can use useEffect in your application:
+1. Declare the useEffect hook: You can declare the useEffect hook at the top of your component.
+2. Define the function to run as a side effect: You can define the function to run as a side effect inside the useEffect hook. This function can perform any side effect you need, such as fetching data from a server or updating the DOM.
+3. Return a cleanup function (optional): If your side effect requires any cleanup, such as unsubscribing from events, you can return a function that performs the cleanup. This function will run before the next side effect is executed.
+
+
+Timer Using useState and useEffect
+---------------------------------------------------------
+
+import React, { useState, useEffect } from 'react';
+
+function Timer() {
+  const [seconds, setSeconds] = useState(0);
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setSeconds(seconds => seconds + 1);
+    }, 1000);
+
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, []);
+
+  return (
+    <div>
+      <h1>Timer: {seconds}</h1>
+    </div>
+  );
+}
+
+export default Timer;
+------------
+
+import {useState,useEffect} from "react"
+import axios from "axios";
+export default function App() {
+  const  [users,setUsers]=useState(null);
+  useEffect(()=>{
+    axios.get("https://jsonplaceholder.typicode.com/users")
+    .then(res=> setUsers(res.data))
+    .catch((err)=>console.log(err));
+  },[])
+  return (
+    users && users.map(users=><div>{users.name}</div>)
+  );
+}
+-------------------------------
+
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
+UseContext
+
+
+useContext is a hook in React that allows you to use context in your components. Context is a way to pass data down the component tree without having to pass props manually at every level. With useContext, you can create a context object that contains data that needs to be shared across components. You can then use the useContext hook to access that data in your components.
+Here's how you can use useContext in your application:
+1. Create a context object: You can create a context object using the createContext function. This function returns an object with two properties: Provider and Consumer. The Provider component is used to provide the context to the child components, while the Consumer component is used to consume the context in the child components.
+2. Wrap the components that need the context: You can wrap the components that need to access the context with the Provider component. This makes the context available to all the child components of the wrapped components.
+3. Use useContext to access the context data: You can use the useContext hook to access the context data in your components. The useContext hook takes the context object as an argument and returns the value of the context.
+
+
+----------------------------
+App.js
+
+import { Button } from "./Button";
+import { ThemeProvider } from "./ThemeContext";
+import "./styles.css";
+export default function App() {
+  return (
+    <div className="App">
+      <h1>Hello CodeSandbox</h1>
+      {/* <Counter /> */}
+      <ThemeProvider>
+        <Button />
+      </ThemeProvider>
+    </div>
+  );
+}
+
+Button.js
+
+
+import { ThemeContext } from "./ThemeContext";
+import { useContext } from "react";
+export const Button = () => {
+  const { theme, toggleTheme } = useContext(ThemeContext);
+  return (
+    <button
+      onClick={toggleTheme}
+      style={{ backgroundColor: theme.background, color: theme.foreground }}
+    >
+      {theme === "light" ? "Dark Mode" : "Light Mode"}
+    </button>
+  );
+};
+
+
+
+ThemeContext.js
+
+
+import { useState,createContext } from 'react';
+export const ThemeContext = createContext();
+export const themes = {
+  light: {
+    foreground: '#000000',
+    background: '#eeeeee',
+  },
+  dark: {
+    foreground: '#ffffff',
+    background: '#222222',
+  },
+};
+export const ThemeProvider = ({ children }) => {
+  const [theme, setTheme] = useState(themes.light);
+  const toggleTheme = () => {
+    setTheme(theme === themes.light ? themes.dark : themes.light);
+  };
+  return (
+    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+      {children}
+    </ThemeContext.Provider>
+  );
+};
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
+UseReducer
+
+useReducer is a hook in React that allows you to manage complex state and update logic in your functional components. It is an alternative to the useState hook when you have more complex state that requires more than just simple updates.
+With useReducer, you can declare a state variable and an action dispatch function that updates the state based on the type of action. You can define a reducer function that takes the current state and an action, and returns the new state based on the type of action. The action can be any JavaScript object that describes the update you want to make to the state.
+
+Here's how you can use useReducer in your application:
+
+1. Declare the useReducer hook: You can declare the useReducer hook at the top of your component.
+2. Define the initial state value: You can define the initial value of the state variable inside the useReducer hook. This value can be any data type, such as a string, number, array, or object.
+3. Define the reducer function: You can define a reducer function that takes the current state and an action, and returns the new state based on the type of action.
+4. Dispatch an action: You can dispatch an action to the reducer function using the dispatch function returned by the useReducer hook. The action can be any JavaScript object that describes the update you want to make to the state.
+
+
+----------------------------
+useReducer sample example program
+---------------------------------------------------------
+
+import React, { useReducer } from "react";
+
+const initialState = { count: 0 };
+
+function reducer(state, action) {
+  switch (action.type) {
+    case "increment":
+      return { count: state.count + 1 };
+    case "decrement":
+      return { count: state.count - 1 };
+    case "reset":
+      return { count: 0 };
+    default:
+      throw new Error();
+  }
+}
+
+function Counter() {
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  return (
+    <>
+      <h1>Count: {state.count}</h1>
+      <button onClick={() => dispatch({ type: "increment" })}>Increment</button>
+      <button onClick={() => dispatch({ type: "decrement" })}>Decrement</button>
+      <button onClick={() => dispatch({ type: "reset" })}>Reset</button>
+    </>
+  );
+}
+
+export default Counter;
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
+UseCallback
+
+useCallback is a hook in React that memoizes a function so that it can be reused across multiple renders. It's useful when you need to pass a function down to a child component as a prop, but you don't want that child component to re-render unnecessarily.
+
+
+Example program for UseCallback :-- 
+parent component
+
+import React, { useState, useCallback } from "react";
+import ChildComponent from "./ChildComponent";
+
+function ParentComponent() {
+  const [count, setCount] = useState(0);
+
+  const incrementCount = useCallback(() => {
+    setCount(count + 1);
+  }, [count]);
+
+  return (
+    <div>
+      <h1>Count: {count}</h1>
+      <ChildComponent increment={incrementCount} />
+    </div>
+  );
+}
+
+export default ParentComponent;
+
+
+Child Component
+
+
+import React from "react";
+
+function ChildComponent({ increment }) {
+  return (
+    <div>
+      <button onClick={increment}>Increment</button>
+    </div>
+  );
+}
+
+export default ChildComponent;

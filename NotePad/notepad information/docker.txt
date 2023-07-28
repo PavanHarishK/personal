@@ -1,0 +1,50 @@
+
+DOCKER COMANDS SHEET
+------------------------
+
+to pull a image from docker hub=>docker pull "image name"
+to create a container => docker container create -t --name "container name" "image name"
+to check satus of docker=> docker ps -a
+to start a container => docker start "container name"
+to start multiple container at a time => docker start "container name 1" "container name 2"
+
+to stop a container => docker stop "container name"
+to stop multiple container at a time => docker stop "container name 1" "container name 2"
+
+NOTE: when a container is running we are not able to remove container. so, first we need to stop the container and then we can remove the container 
+
+to remove container => docker rm "container name"
+to remove multiple container at a time => docker rm "container name 1" "container name 2"
+
+NOTE: to enter a container first we need to start the container and then only we are able to start the container
+
+to enter into a container=> docker exec -t "container name" /bin/bash 
+to exit from the container ==> ctrl(button) + c
+
+DOCKER VOLUME
+---------------
+
+to check volume => docker volume ls
+
+to create volume => docker volume create "volume name"
+
+to run => docker run -it --name "container name" --read -only
+
+to remove volume => docker rm "volume name"
+
+DOCKER NETWORK CONNECTIONS
+----------------------------
+
+to check list of network => docker network ls
+
+to inspect network name => docker inspect "network name"
+
+to create a network => docker network create -d bridge "network name"
+
+to connect a network with container => docker network connect "network name" "container name"
+
+to disconnect a network with container => docker network disconnect "network name" "container name"
+
+NOTE=> if u want to remove the network  first u need to disconnect  all the containers
+
+to remove network => docker network rm "network name" 
