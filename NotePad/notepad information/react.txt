@@ -1,3 +1,5 @@
+Hooks
+
 React Hooks::
 
 	1)useState()
@@ -10,10 +12,7 @@ React Hooks::
 	
 	useLayoutEffect()
 	useImperativeHandle()
-	useDebugValue()
-	
-	
-
+useDebugValue()
 
 Map Function:Example
 ---------------------------------------
@@ -38,18 +37,15 @@ return <>
 }
 export default App;
 
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 
-&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
-&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
-
+UseState
 
 useState is a hook in React that allows you to add state to your functional components. State is any data that changes over time and can affect your component's rendering. With useState, you can declare a state variable and update it using a setter function.
 Here's how you can use useState in your application:
 1. Declare the useState hook: You can declare the useState hook at the top of your component.
 2. Define the initial state value: You can define the initial value of the state variable inside the useState hook. This value can be any data type, such as a string, number, array, or object.
 3. Update the state: You can update the state variable using the setter function returned by the useState hook. This function accepts a new value as its argument and updates the state variable with that value.
-
-Calculator app using useState
 
 
 Increment and Decrement using useState
@@ -75,7 +71,8 @@ function Counter() {
   );
 }
 export default Counter;
-------------------------------
+-------------------------------------------
+
 Calculator app using useState
 ---------------------------------
 
@@ -98,21 +95,17 @@ function Calculator() {
   );
 }
 export default Calculator;
-&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
-&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+------------------------------------
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 
 UseEffect
-
-Wednesday, April 19, 2023
-1:09 PM
 
 useEffect is a hook in React that allows you to perform side effects in your components. Side effects can include things like fetching data from a server, updating the DOM, or subscribing to events.
 The useEffect hook takes a function as its argument and runs it after every render of the component. You can use useEffect to perform any side effects you need in your component. Here's how you can use useEffect in your application:
 1. Declare the useEffect hook: You can declare the useEffect hook at the top of your component.
 2. Define the function to run as a side effect: You can define the function to run as a side effect inside the useEffect hook. This function can perform any side effect you need, such as fetching data from a server or updating the DOM.
 3. Return a cleanup function (optional): If your side effect requires any cleanup, such as unsubscribing from events, you can return a function that performs the cleanup. This function will run before the next side effect is executed.
-
-
+-------------------------------
 Timer Using useState and useEffect
 ---------------------------------------------------------
 
@@ -139,7 +132,7 @@ function Timer() {
 }
 
 export default Timer;
-------------
+---------------------------------
 
 import {useState,useEffect} from "react"
 import axios from "axios";
@@ -154,21 +147,19 @@ export default function App() {
     users && users.map(users=><div>{users.name}</div>)
   );
 }
--------------------------------
-
-&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+-----------------------------------------
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 
 UseContext
-
 
 useContext is a hook in React that allows you to use context in your components. Context is a way to pass data down the component tree without having to pass props manually at every level. With useContext, you can create a context object that contains data that needs to be shared across components. You can then use the useContext hook to access that data in your components.
 Here's how you can use useContext in your application:
 1. Create a context object: You can create a context object using the createContext function. This function returns an object with two properties: Provider and Consumer. The Provider component is used to provide the context to the child components, while the Consumer component is used to consume the context in the child components.
 2. Wrap the components that need the context: You can wrap the components that need to access the context with the Provider component. This makes the context available to all the child components of the wrapped components.
 3. Use useContext to access the context data: You can use the useContext hook to access the context data in your components. The useContext hook takes the context object as an argument and returns the value of the context.
+------------------------------------------
 
 
-----------------------------
 App.js
 
 import { Button } from "./Button";
@@ -185,6 +176,7 @@ export default function App() {
     </div>
   );
 }
+---------------------------------
 
 Button.js
 
@@ -202,11 +194,9 @@ export const Button = () => {
     </button>
   );
 };
-
-
+----------------------------
 
 ThemeContext.js
-
 
 import { useState,createContext } from 'react';
 export const ThemeContext = createContext();
@@ -231,8 +221,9 @@ export const ThemeProvider = ({ children }) => {
     </ThemeContext.Provider>
   );
 };
-&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
-&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
+-------------------------
+&&&&&&&&&&&&&&&&&&&&&&&&&
 
 UseReducer
 
@@ -247,7 +238,6 @@ Here's how you can use useReducer in your application:
 4. Dispatch an action: You can dispatch an action to the reducer function using the dispatch function returned by the useReducer hook. The action can be any JavaScript object that describes the update you want to make to the state.
 
 
-----------------------------
 useReducer sample example program
 ---------------------------------------------------------
 
@@ -282,8 +272,8 @@ function Counter() {
 }
 
 export default Counter;
-&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
-
+-----------------------------------
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 UseCallback
 
 useCallback is a hook in React that memoizes a function so that it can be reused across multiple renders. It's useful when you need to pass a function down to a child component as a prop, but you don't want that child component to re-render unnecessarily.
@@ -313,6 +303,7 @@ function ParentComponent() {
 export default ParentComponent;
 
 
+---------------------------
 Child Component
 
 
